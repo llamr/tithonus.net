@@ -1,0 +1,31 @@
+name = "tithonus-net"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+account_id = "40778b7d9a384e689a1ae7d176778af7"
+workers_dev = false
+
+routes = [
+  { pattern = "tithonus.net", custom_domain = true }
+]
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VEC"
+index_name = "tithonus-swarms"
+
+[[durable_objects.bindings]]
+name = "FIELD"
+class_name = "Field"
+
+[[durable_objects.bindings]]
+name = "GATE"
+class_name = "Gate"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Field", "Gate"]
+
+[triggers]
+crons = ["10 * * * *"]
